@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>BLACK MARKET RECORDS | KENYA MUSIC AWARDS 2025</title>
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;
+      color: #f0f0f0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* Black & White Theme */
+    :root {
+      --pure-black: #000000;
+      --card-bg: #0f0f0f;
+      --border-light: #2a2a2a;
+      --hover-glow: rgba(255,255,255,0.12);
+      --white: #ffffff;
+      --off-white: #e6e6e6;
+    }
+
+    /* custom scroll */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 10px;
+    }
+
+    /* animations */
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255,255,255,0.1);
+      }
+      70% {
+        box-shadow: 0 0 0 8px rgba(255,255,255,0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255,255,255,0);
+      }
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* navbar */
+    .navbar {
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #2a2a2a;
+      padding: 1rem 0;
+      transition: all 0.3s;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo h1 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff, #b0b0b0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .logo span {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #aaa;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: 0.25s;
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover {
+      color: white;
+      border-bottom-color: white;
+      transform: translateY(-2px);
+    }
+
+    /* section animations */
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #181818;
+      animation: fadeUp 0.7s ease-out;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 55%;
+      height: 3px;
+      background: #ffffff;
+      transition: width 0.3s;
+    }
+    .section-title:hover::after {
+      width: 100%;
+    }
+
+    /* hero */
+    .hero {
+      text-align: center;
+      background: radial-gradient(circle at 20% 30%, #0a0a0a, #000000);
+      padding: 5rem 0 4rem;
+    }
+    .hero h2 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      animation: pulseGlow 2s infinite;
+    }
+    .hero .tagline {
+      font-size: 1.2rem;
+      color: #b0b0b0;
+      margin-top: 1rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-date {
+      margin-top: 2rem;
+      background: #121212;
+      padding: 0.6rem 1.8rem;
+      border-radius: 40px;
+      display: inline-block;
+      border: 1px solid #2c2c2c;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .hero-date:hover {
+      border-color: white;
+      transform: scale(1.02);
+    }
+
+    /* grid & cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-light);
+      border-radius: 28px;
+      padding: 1.6rem;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      backdrop-filter: blur(2px);
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.01);
+      border-color: #5a5a5a;
+      box-shadow: 0 20px 30px -12px rgba(255,255,255,0.08);
+      background: #141414;
+    }
+
+    .category-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.3rem;
+      border-left: 4px solid white;
+      padding-left: 14px;
+    }
+
+    .nominee-list {
+      list-style: none;
+    }
+    .nominee-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #232323;
+      transition: 0.2s;
+    }
+    .nominee-item:hover {
+      background: #1b1b1b;
+      padding-left: 8px;
+      border-radius: 12px;
+    }
+    .nominee-name {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .vote-count {
+      background: #1c1c1c;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* voting box styles */
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.7rem 0;
+      cursor: pointer;
+      border-bottom: 1px solid #262626;
+      transition: 0.2s;
+    }
+    .radio-label:hover {
+      background: #1a1a1a;
+      padding-left: 8px;
+      border-radius: 16px;
+    }
+    .radio-label span:first-child {
+      flex: 1;
+      font-weight: 500;
+    }
+    .radio-label input {
+      accent-color: white;
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+      cursor: pointer;
+    }
+    .vote-btn {
+      background: white;
+      color: black;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: 0.25s;
+      width: 100%;
+      margin-top: 1rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .vote-btn:hover:not(:disabled) {
+      background: #e0e0e0;
+      transform: scale(0.97);
+      letter-spacing: 0.5px;
+    }
+    .vote-btn:disabled {
+      background: #2a2a2a;
+      color: #777;
+      cursor: not-allowed;
+    }
+    .voted-badge {
+      background: #1a1a1a;
+      color: #ccc;
+      font-size: 0.75rem;
+      padding: 6px 12px;
+      border-radius: 30px;
+      text-align: center;
+      width: 100%;
+      margin-top: 0.8rem;
+      display: inline-block;
+      border: 1px solid #2f2f2f;
+    }
+
+    /* winner card extras */
+    .winner-card {
+      background: #0c0c0c;
+      transition: all 0.25s;
+    }
+    .winner-card:hover {
+      background: #131313;
+      border-color: #5a5a5a;
+      transform: translateY(-5px);
+    }
+    .winner-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    /* contact */
+    .contact-icon {
+      margin-right: 10px;
+      color: #aaa;
+    }
+
+    .footer {
+      background: #020202;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #5a5a5a;
+      border-top: 1px solid #1c1c1c;
+    }
+
+    .toast-msg {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #111;
+      backdrop-filter: blur(10px);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      border-left: 4px solid white;
+      z-index: 999;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      animation: fadeUp 0.2s ease;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        gap: 1.2rem;
+        width: 100%;
+      }
+      .section-title {
+        font-size: 1.9rem;
+      }
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+      .card {
+        padding: 1.2rem;
+      }
+    }
+    button, input {
+      font-family: inherit;
+    }
+    i {
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="container nav-container">
+    <div class="logo">
+      <h1>BLACK MARKET RECORDS</h1>
+      <span>KENYA MUSIC AWARDS · NAIROBI 2025</span>
+    </div>
+    <div class="nav-links">
+      <a href="#home"><i class="fas fa-home"></i> HOME</a>
+      <a href="#nominees"><i class="fas fa-list"></i> NOMINEES</a>
+      <a href="#vote"><i class="fas fa-vote-yea"></i> VOTE BOX</a>
+      <a href="#winners"><i class="fas fa-crown"></i> WINNERS</a>
+      <a href="#contact"><i class="fas fa-envelope"></i> CONTACT</a>
+    </div>
+  </div>
+</div>
+
+<main>
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="container">
+      <h2>◉ SAWA SAWA NAIROBI ◉</h2>
+      <div class="tagline">BLACK MARKET RECORDS presents the 1st Annual Kenya Music Awards — celebrating the heartbeat of Kenyan sounds: Gengetone, Afro-fusion, Rap, and RnB.</div>
+      <div class="hero-date"><i class="fas fa-calendar-alt"></i> Live at KICC, Nairobi · July 19, 2025 · #BMRKenya</div>
+      <div style="margin-top: 2rem;"><i class="fas fa-microphone-alt"></i> Your vote defines the realest. Cast below!</div>
+    </div>
+  </section>
+
+  <!-- NOMINEES SECTION (read-only with vote counts) -->
+  <section id="nominees">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-trophy"></i> OFFICIAL NOMINEES · KENYA</h2>
+      <div id="nominees-container" class="grid-2"></div>
+    </div>
+  </section>
+
+  <!-- VOTE BOX SECTION (interactive voting) -->
+  <section id="vote" style="background: #020202;">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-check-circle"></i> VOTING BOX · CAST YOUR VOTE</h2>
+      <p style="margin-bottom: 2rem; color: #aaa;">One vote per category. Influence the winners! <i class="fas fa-shield-alt"></i> powered by blockchain (not really)</p>
+      <div id="voting-container" class="grid-2"></div>
+    </div>
+  </section>
+
+  <!-- PAST / PREDICTED WINNERS SECTION (show previous edition winners) -->
+  <section id="winners">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-crown"></i> 2024 WINNERS · HALL OF FAME</h2>
+      <div class="grid-2">
+        <div class="card winner-card">
+          <div class="winner-name"><i class="fas fa-music"></i> Best Male Artist 2024</div>
+          <div class="winner-year">Nyashinski</div>
+          <div style="font-size:0.75rem;">"Bebi Bebi" – anthem of the year</div>
+        </div>
+        <div class="card winner-card">
+          <div class="winner-name"><i class="fas fa-female"></i> Best Female Artist 2024</div>
+          <div class="winner-year">Nadia Mukami</div>
+        </div>
+        <div class="card winner-card">
+          <div class="winner-name"><i class="fas fa-users"></i> Best Group / Collabo</div>
+          <div class="winner-year">Bien & Sauti Sol</div>
+        </div>
+        <div class="card winner-card">
+          <div class="winner-name"><i class="fas fa-fire"></i> Song of The Year</div>
+          <div class="winner-year">Wakadinali - "Sikutambui"</div>
+        </div>
+      </div>
+      <div style="margin-top: 2rem; text-align:center; background:#0c0c0c; padding:1rem; border-radius: 60px;">
+        <i class="fas fa-chart-simple"></i> 2025 winners announced LIVE — vote & decide the new kings & queens.
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / ABOUT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-building"></i> BLACK MARKET RECORDS · NAIROBI</h2>
+      <div class="grid-2" style="margin-top: 1rem;">
+        <div class="card">
+          <i class="fas fa-map-pin contact-icon"></i> <strong>HQ Kenya</strong><br>
+          Westlands, Nairobi · The Underground Hub<br>
+          <i class="fas fa-globe"></i> Representing raw talent across 47 counties.
+        </div>
+        <div class="card">
+          <i class="fas fa-headset contact-icon"></i> <strong>Press & Inquiries</strong><br>
+          kenya@blackmarketrecords.com<br>
+          +254 700 987 654<br>
+          <i class="fab fa-instagram"></i> @bmr_kenya_awards
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>© BLACK MARKET RECORDS — KENYA MUSIC AWARDS. Where underground meets legacy. #BMRKenya2025</p>
+</footer>
+
+<script>
+  // -----------------------------------------
+  // KENYAN MUSICIANS DATA (5 categories)
+  // -----------------------------------------
+  let categoriesData = [
+    {
+      id: "cat_gengetone",
+      name: "BEST GENGETONE ARTIST",
+      nominees: [
+        { id: "gen1", name: "Mejja", votes: 312 },
+        { id: "gen2", name: "Exray Taniua", votes: 278 },
+        { id: "gen3", name: "Breeder LW", votes: 201 }
+      ]
+    },
+    {
+      id: "cat_afrofusion",
+      name: "BEST AFRO-FUSION ACT",
+      nominees: [
+        { id: "afro1", name: "Bien (Sauti Sol)", votes: 345 },
+        { id: "afro2", name: "Nikita Kering'", votes: 289 },
+        { id: "afro3", name: "Willy Paul", votes: 167 }
+      ]
+    },
+    {
+      id: "cat_hiphop",
+      name: "BEST KENYAN HIP-HOP",
+      nominees: [
+        { id: "hh1", name: "Wakadinali", votes: 420 },
+        { id: "hh2", name: "Burna Boy (Kenyan collab) - Scar Mkadinali", votes: 310 },
+        { id: "hh3", name: "Khaligraph Jones", votes: 398 }
+      ]
+    },
+    {
+      id: "cat_newartist",
+      name: "BEST NEW ARTIST (KE)",
+      nominees: [
+        { id: "new1", name: "Wendy Kay", votes: 189 },
+        { id: "new2", name: "Trio Mio", votes: 243 },
+        { id: "new3", name: "Unspoken Salaton", votes: 176 }
+      ]
+    },
+    {
+      id: "cat_songoftheyear",
+      name: "SONG OF THE YEAR (KENYA)",
+      nominees: [
+        { id: "song1", name: "Maandy - 'Wamlambez'", votes: 502 },
+        { id: "song2", name: "Otile Brown - 'Dusuma'", votes: 377 },
+        { id: "song3", name: "Bensoul - 'Ni Weu'", votes: 294 }
+      ]
+    }
+  ];
+
+  // voted categories set (persist)
+  let votedCategories = new Set();
+
+  // --- LOCALSTORAGE LOAD/SAVE ---
+  function loadFromLocalStorage() {
+    const storedData = localStorage.getItem("bmr_kenya_categories");
+    if (storedData) {
+      try {
+        const parsed = JSON.parse(storedData);
+        if (parsed && Array.isArray(parsed) && parsed.length === categoriesData.length) {
+          categoriesData = parsed;
+        }
+      } catch(e) {}
+    }
+    const storedVoted = localStorage.getItem("bmr_kenya_voted");
+    if (storedVoted) {
+      try {
+        const votedArr = JSON.parse(storedVoted);
+        votedCategories = new Set(votedArr);
+      } catch(e) {}
+    }
+  }
+
+  function persistCategoriesData() {
+    localStorage.setItem("bmr_kenya_categories", JSON.stringify(categoriesData));
+  }
+
+  function persistVotedSet() {
+    localStorage.setItem("bmr_kenya_voted", JSON.stringify([...votedCategories]));
+  }
+
+  // toast helper
+  function showToast(message, isError = false) {
+    let existing = document.querySelector('.toast-msg');
+    if(existing) existing.remove();
+    const toast = document.createElement('div');
+    toast.className = 'toast-msg';
+    toast.innerHTML = `<i class="fas ${isError ? 'fa-exclamation-triangle' : 'fa-heart'}"></i> ${message}`;
+    document.body.appendChild(toast);
+    setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 2800); }, 2500);
+  }
+
+  // render NOMINEES section (stats only)
+  function renderNominees() {
+    const container = document.getElementById('nominees-container');
+    if (!container) return;
+    container.innerHTML = '';
+    categoriesData.forEach(category => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="category-name"><i class="fas fa-award"></i> ${category.name}</div>
+        <ul class="nominee-list">
+          ${category.nominees.map(nom => `
+            <li class="nominee-item">
+              <span class="nominee-name"><i class="fas fa-user"></i> ${nom.name}</span>
+              <span class="vote-count"><i class="fas fa-chart-simple"></i> ${nom.votes} votes</span>
+            </li>
+          `).join('')}
+        </ul>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  // render VOTING BOX (interactive)
+  function renderVoteBox() {
+    const container = document.getElementById('voting-container');
+    if (!container) return;
+    container.innerHTML = '';
+    categoriesData.forEach(category => {
+      const isVoted = votedCategories.has(category.id);
+      const card = document.createElement('div');
+      card.className = 'card';
+      
+      let radiosHtml = '';
+      category.nominees.forEach(nominee => {
+        radiosHtml += `
+          <label class="radio-label">
+            <span><i class="fas fa-microphone-alt"></i> ${nominee.name} <span style="font-size:0.7rem; opacity:0.7;">(${nominee.votes} votes)</span></span>
+            <input type="radio" name="${category.id}" value="${nominee.id}" ${isVoted ? 'disabled' : ''}>
+          </label>
+        `;
+      });
+      
+      let actionHtml = '';
+      if (isVoted) {
+        actionHtml = `<div class="voted-badge"><i class="fas fa-check-circle"></i> Voted! Thanks for participating</div>`;
+      } else {
+        actionHtml = `<button class="vote-btn" data-cat-id="${category.id}"><i class="fas fa-ballot"></i> SUBMIT VOTE</button>`;
+      }
+      
+      card.innerHTML = `
+        <div class="category-name">🗳️ ${category.name}</div>
+        <div class="radio-group" data-category="${category.id}">
+          ${radiosHtml}
+        </div>
+        ${actionHtml}
+      `;
+      container.appendChild(card);
+    });
+    
+    // attach events to vote buttons
+    document.querySelectorAll('.vote-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const catId = btn.getAttribute('data-cat-id');
+        if (!catId) return;
+        const parentCard = btn.closest('.card');
+        const selectedRadio = parentCard.querySelector('input[type="radio"]:checked');
+        if (!selectedRadio) {
+          showToast('⚠️ Tafadhali chagua msanii kabla ya kupiga kura!', true);
+          return;
+        }
+        const nomineeValue = selectedRadio.value;
+        const category = categoriesData.find(c => c.id === catId);
+        if (!category) return;
+        if (votedCategories.has(catId)) {
+          showToast('Umeshapiga kura katika kitengo hiki!', true);
+          return;
+        }
+        const nominee = category.nominees.find(n => n.id === nomineeValue);
+        if (nominee) {
+          nominee.votes += 1;
+          persistCategoriesData();
+          votedCategories.add(catId);
+          persistVotedSet();
+          renderNominees();
+          renderVoteBox();
+          showToast(`✅ Umeshawania ${nominee.name} katika ${category.name}! Asante.`);
+        } else {
+          showToast('Error: nominee not found', true);
+        }
+      });
+    });
+  }
+  
+  // Initialization
+  function init() {
+    loadFromLocalStorage();
+    renderNominees();
+    renderVoteBox();
+  }
+  
+  // cross-tab sync
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'bmr_kenya_categories' || e.key === 'bmr_kenya_voted') {
+      loadFromLocalStorage();
+      renderNominees();
+      renderVoteBox();
+      showToast("Vote data refreshed from another tab", false);
+    }
+  });
+  
+  init();
+</script>
+</body>
+</html>
